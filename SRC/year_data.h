@@ -1,35 +1,41 @@
-#ifndef YEAR_DATA_H
-#define YEAR_DATA_H
+#ifndef YEAR_INIT_H
+#define YEAR_INIT_H
 
-#define YEAR_START 2005
-#define YEAR_END   2024
-#define YEAR_COUNT 20
+/* Plage d'etude : 20 annees de 2005 a 2024 inclus */
+#define ANNEE_DEBUT 2005
+#define ANNEE_FIN 2024
+#define NB_ANNEES 20
 
+/* Donnees utiles extraites d'une ligne du CSV pour YEAR_DATA */
 typedef struct {
-    int year;
-    int collision_id;
-    int severity;
-} YearCsvRow;
+    int annee;
+    unsigned int id_collision;
+    int gravite;
+} DonneeLigne;
 
+/* Compteurs statistiques cumules pour une annee */
 typedef struct {
-    int accidents;
-    int killed;
-    int severe_injury;
-    int light_injury;
-    int unharmed;
-    int last_collision_id;
-    int has_last_collision;
-} YearStats;
+    unsigned int accidents;
+    unsigned int morts;
+    unsigned int blesses_graves;
+    unsigned int blesses_legers;
+    unsigned int indemnes;
+    unsigned int dernier_id;
+    unsigned char a_un_accident; /* 0 tant qu'aucun accident n'a ete lu pour cette annee */
+} StatsAnnee;
 
+/* Tableau statique de 20 cases (0 = 2005, 19 = 2024) */
 typedef struct {
-    YearStats years[YEAR_COUNT];
-} YearTable;
+    StatsAnnee annees[NB_ANNEES];
+} TabAnnees;
 
-int year_to_index(int year);
-void year_table_init(YearTable *table);
-void year_table_add_row(YearTable *table, const YearCsvRow *row);
+/* Convertit une annee (2005..2024) en indice (0..19), ou -1 si hors plage */
+int annee_idx(int annee);
 
-void compute_year_stats(const YearTable *table, int year, YearStats *out_stats);
-void run_year_menu(const YearTable *table);
+/* Initialise toutes les cases du tableau a 0 */
+void init_tab(TabAnnees *tab);
+
+/* Met a jour les compteurs de l'annee correspondant a la ligne */
+void ajout_ligne(TabAnnees *tab, const DonneeLigne *donnee);
 
 #endif
