@@ -12,7 +12,7 @@ void run_crash_data(const char *path)
     long year;
     long id;
 
-    (void)path; /* pas encore utilise : le fichier sera lu plus tard */
+    (void)path; 
     do {
         printf("\n===== MODE CRASH_DATA =====\n");
         printf("1. Rechercher un accident\n");
