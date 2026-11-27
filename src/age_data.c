@@ -45,7 +45,7 @@ int indice_genre_usager(int genre_user) {
     if (type == 1 || type == 2) {
         return user_type; // 1 ou  2 restent directement sur le bon indice
     }
-    return 0; // le reste n'est pas reconnu 
+    return 0; // le reste des valeur n'est pas reconnu donc renvoie 0
 }
 
 
