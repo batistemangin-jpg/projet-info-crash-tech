@@ -5,13 +5,13 @@
 #define ANNEE_FIN 2024
 #define NB_ANNEES 20
 
-typedef struct {
+typedef struct DonneeLigne{
     int annee;
     unsigned int id_collision;
     int gravite;
 } DonneeLigne;
 
-typedef struct {
+typedef struct StatsAnnee{
     unsigned int accidents;
     unsigned int morts;
     unsigned int blesses_graves;
@@ -21,7 +21,8 @@ typedef struct {
     unsigned char a_un_accident;
 } StatsAnnee;
 
-typedef struct {
+
+typedef struct TabAnnees{
     StatsAnnee annees[NB_ANNEES];
 } TabAnnees;
 
