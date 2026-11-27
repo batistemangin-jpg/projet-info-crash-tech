@@ -1,5 +1,5 @@
-#ifndef YEAR_INIT_H
-#define YEAR_INIT_H
+#ifndef YEAR_DATA_H
+#define YEAR_DATA_H
 
 #define ANNEE_DEBUT 2005
 #define ANNEE_FIN 2024
@@ -26,9 +26,16 @@ typedef struct {
 } TabAnnees;
 
 int annee_idx(int annee);
-
 void init_tab(TabAnnees *tab);
+void ajout_ligne(TabAnnees *tab, DonneeLigne *donnee);
 
-void ajout_ligne(TabAnnees *tab, const DonneeLigne *donnee);
+StatsAnnee calculer_stats_annee(TabAnnees *tab, int annee);
+unsigned int total_victimes(StatsAnnee *st);
+int pire_annee(TabAnnees *tab, int critere);
+int meilleure_annee(TabAnnees *tab, int critere);
+
+void afficher_stats_annee(int annee, StatsAnnee *st);
+void afficher_extremes(TabAnnees *tab);
+void lancer_menu_year(TabAnnees *tab);
 
 #endif
