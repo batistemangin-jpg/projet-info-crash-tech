@@ -28,6 +28,6 @@ int main(){
             }
         }
     } while (choix < 1 || choix > 3);
-    if ( choix = 1
+    if ( choix = 1 )
 }
         
