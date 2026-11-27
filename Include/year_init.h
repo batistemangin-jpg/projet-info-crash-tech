@@ -18,8 +18,7 @@ typedef struct {
     unsigned int blesses_legers;
     unsigned int indemnes;
     unsigned int dernier_id;
-    unsigned char a_un_accident; /* 0 tant qu'aucun accident n'a ete lu pour cette annee */
-} StatsAnnee;
+    unsigned char a_un_accident; 
 
 typedef struct {
     StatsAnnee annees[NB_ANNEES];
