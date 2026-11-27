@@ -10,11 +10,9 @@ int annee_idx(int annee) {
 
 void init_tab(TabAnnees *tab) {
     int i;
-
     if (tab == NULL) {
         return;
     }
-
     for (i = 0; i < NB_ANNEES; i++) {
         tab->annees[i].accidents = 0;
         tab->annees[i].morts = 0;
@@ -29,24 +27,19 @@ void init_tab(TabAnnees *tab) {
 void ajout_ligne(TabAnnees *tab, DonneeLigne *donnee) {
     int indice;
     StatsAnnee *stats;
-
     if (tab == NULL || donnee == NULL) {
         return;
     }
-
     indice = annee_idx(donnee->annee);
     if (indice < 0) {
         return;
     }
-
     stats = &tab->annees[indice];
-
     if (!stats->a_un_accident || donnee->id_collision != stats->dernier_id) {
         stats->accidents++;
         stats->dernier_id = donnee->id_collision;
         stats->a_un_accident = 1;
     }
-
     if (donnee->gravite == 2) {
         stats->morts++;
     } else if (donnee->gravite == 3) {
