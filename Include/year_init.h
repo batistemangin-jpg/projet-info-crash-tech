@@ -25,17 +25,4 @@ typedef struct {
     StatsAnnee annees[NB_ANNEES];
 } TabAnnees;
 
-int annee_idx(int annee);
-void init_tab(TabAnnees *tab);
-void ajout_ligne(TabAnnees *tab, DonneeLigne *donnee);
-
-StatsAnnee calculer_stats_annee(TabAnnees *tab, int annee);
-unsigned int total_victimes(StatsAnnee *st);
-int pire_annee(TabAnnees *tab, int critere);
-int meilleure_annee(TabAnnees *tab, int critere);
-
-void afficher_stats_annee(int annee, StatsAnnee *st);
-void afficher_extremes(TabAnnees *tab);
-void lancer_menu_year(TabAnnees *tab);
-
 #endif
