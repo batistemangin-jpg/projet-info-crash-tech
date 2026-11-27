@@ -30,18 +30,15 @@ void afficher_extremes(TabAnnees *tab) {
     }
     annee_pire = pire_annee(tab, 1);
     annee_meilleure = meilleure_annee(tab, 1);
-    if (annee_pire < ANNEE_DEBUT || annee_pire > ANNEE_FIN ||
-        annee_meilleure < ANNEE_DEBUT || annee_meilleure > ANNEE_FIN) {
+    if (annee_pire < ANNEE_DEBUT || annee_pire > ANNEE_FIN || annee_meilleure < ANNEE_DEBUT || annee_meilleure > ANNEE_FIN) {
         printf("\nImpossible de determiner la meilleure et la pire annee.\n");
         return;
     }
     st_pire = calculer_stats_annee(tab, annee_pire);
     st_meilleure = calculer_stats_annee(tab, annee_meilleure);
-    printf("\n=== MEILLEURE ET PIRE ANNEE ===\n");
-    printf("Pire annee      : %d (%u morts, %u accidents)\n",
-           annee_pire, st_pire.morts, st_pire.accidents);
-    printf("Meilleure annee : %d (%u morts, %u accidents)\n",
-           annee_meilleure, st_meilleure.morts, st_meilleure.accidents);
+    printf("\n*************MEILLEURE ET PIRE ANNEE *************\n");
+    printf("Pire annee      : %d (%u morts, %u accidents)\n", annee_pire, st_pire.morts, st_pire.accidents);
+    printf("Meilleure annee : %d (%u morts, %u accidents)\n",annee_meilleure, st_meilleure.morts, st_meilleure.accidents);
 }
 
 void lancer_menu_year(TabAnnees *tab) {
