@@ -28,6 +28,21 @@ int main(){
             }
         }
     } while (choix < 1 || choix > 3);
-    if ( choix = 1 )
+     if (choix == 1) {
+        printf("Nom du fichier de donnees (.csv) : ");
+        if (scanf("%255s", fichier) != 1) {
+            printf("Erreur : nom de fichier non lu.\n");
+            return 1;
+        }
+        vider_buffer();
+        init_tab(&tab);
+        if (lire_fichier_year(fichier, &tab) != 0) {
+            return 1;
+        }
+        lancer_menu_year(&tab);
+    } else {
+        printf("Ce mode n'est pas encore disponible.\n");
+    }
+    return 0;
 }
         
